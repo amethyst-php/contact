@@ -2,6 +2,7 @@
 
 namespace Railken\Amethyst\Providers;
 
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Config;
 use Railken\Amethyst\Common\CommonServiceProvider;
 
@@ -15,7 +16,7 @@ class ContactServiceProvider extends CommonServiceProvider
         parent::boot();
 
         \Illuminate\Database\Eloquent\Builder::macro('contacts', function (): MorphMany {
-            return $this->createMacroMorphRelation(\Railken\Amethyst\Models\Contact::class, 'contacts', 'contactable');
+            return $this->createMacroMorphRelation($this, \Railken\Amethyst\Models\Contact::class, 'contacts', 'contactable');
         });
     }
 
