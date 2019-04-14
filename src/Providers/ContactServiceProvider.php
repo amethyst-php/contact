@@ -16,7 +16,7 @@ class ContactServiceProvider extends CommonServiceProvider
         parent::boot();
 
         \Illuminate\Database\Eloquent\Builder::macro('contacts', function (): MorphMany {
-            return $this->createMacroMorphRelation($this, \Railken\Amethyst\Models\Contact::class, 'contacts', 'contactable');
+            return app('amethyst')->createMacroMorphRelation($this, \Railken\Amethyst\Models\Contact::class, 'contacts', 'contactable');
         });
     }
 
@@ -28,6 +28,11 @@ class ContactServiceProvider extends CommonServiceProvider
         parent::register();
         $this->app->register(\Railken\Amethyst\Providers\TaxonomyServiceProvider::class);
 
-        Config::push('amethyst.taxonomy.data.taxonomy.seeds', ['name' => Config::get('amethyst.contact.data.contact.attributes.type.vocabulary')]);
+        app('amethyst.taxonomy')->add('contact.type', Config::get('amethyst.contact.data.contact.attributes.type.vocabulary'), [
+            'phone',
+            'email',
+            'fax',
+            'website',
+        ]);
     }
 }
