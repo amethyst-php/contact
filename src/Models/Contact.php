@@ -37,6 +37,6 @@ class Contact extends Model implements EntityContract
      */
     public function type(): BelongsTo
     {
-        return $this->belongsTo(Taxonomy::class);
+        return $this->belongsTo(config('amethyst.taxonomy.data.taxonomy.model'));
     }
 }
