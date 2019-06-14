@@ -14,10 +14,6 @@ class ContactServiceProvider extends CommonServiceProvider
     public function boot()
     {
         parent::boot();
-
-        \Illuminate\Database\Eloquent\Builder::macro('contacts', function (): MorphMany {
-            return app('amethyst')->createMacroMorphRelation($this, \Railken\Amethyst\Models\Contact::class, 'contacts', 'contactable');
-        });
     }
 
     /**
