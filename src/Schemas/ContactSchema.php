@@ -1,6 +1,6 @@
 <?php
 
-namespace Railken\Amethyst\Schemas;
+namespace Amethyst\Schemas;
 
 use Illuminate\Support\Facades\Config;
 use Railken\Lem\Attributes;
@@ -24,7 +24,7 @@ class ContactSchema extends Schema
                 ->setRelationName('contactable')
                 ->setRelations(app('amethyst')->getMorphRelationable('contact', 'contactable'))
                 ->setRequired(true),
-            \Railken\Amethyst\Attributes\TaxonomyAttribute::make('type_id', Config::get('amethyst.contact.data.contact.attributes.type.vocabulary'))
+            \Amethyst\Attributes\TaxonomyAttribute::make('type_id', Config::get('amethyst.contact.data.contact.attributes.type.vocabulary'))
                 ->setRelationName('type')
                 ->setRequired(true),
             Attributes\TextAttribute::make('value')
