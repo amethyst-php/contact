@@ -1,6 +1,6 @@
 # amethyst-contact
 
-[![Build Status](https://travis-ci.org/amethyst-php/contact.svg?branch=master)](https://travis-ci.org/amethyst-php/contact)
+[![Action Status](https://github.com/amethyst-php/contact/workflows/test/badge.svg)](https://github.com/amethyst-php/contact/actions)
 
 [Amethyst](https://github.com/amethyst-php/amethyst) package.
 
