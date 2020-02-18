@@ -17,12 +17,12 @@ class ContactSchema extends Schema
     {
         return [
             Attributes\IdAttribute::make(),
-            Attributes\EnumAttribute::make('contactable_type', app('amethyst')->getMorphListable('contact', 'contactable'))
+            Attributes\EnumAttribute::make('contactable_type', app('amethyst')->getDataNames())
                 ->setRequired(true),
             Attributes\MorphToAttribute::make('contactable_id')
                 ->setRelationKey('contactable_type')
                 ->setRelationName('contactable')
-                ->setRelations(app('amethyst')->getMorphRelationable('contact', 'contactable'))
+                ->setRelations(app('amethyst')->getDataManagers())
                 ->setRequired(true),
             \Amethyst\Attributes\TaxonomyAttribute::make('type_id', Config::get('amethyst.contact.data.contact.attributes.type.vocabulary'))
                 ->setRelationName('type')
