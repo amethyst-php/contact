@@ -17,7 +17,7 @@ class ContactSchema extends Schema
     {
         return [
             Attributes\IdAttribute::make(),
-            Attributes\EnumAttribute::make('contactable_type', app('amethyst')->getDataNames())
+            \Amethyst\Core\Attributes\DataNameAttribute::make('contactable_type')
                 ->setRequired(true),
             Attributes\MorphToAttribute::make('contactable_id')
                 ->setRelationKey('contactable_type')
